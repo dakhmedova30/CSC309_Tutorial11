@@ -146,6 +146,8 @@ export const AuthProvider = ({ children }) => {
                     body: JSON.stringify(userData)
                 });
 
+                const data = await res.json().catch(() => ({}));
+
                 if (!res.ok) {
                     return data.message || "Registration failed.";
                 }
